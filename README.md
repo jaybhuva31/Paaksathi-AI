@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Paaksathi AI - કૃષિ રોગ ડિટેક્શન સિસ્ટમ
 
 AI-પાવર્ડ ક્રોપ ડિઝીઝ ડિટેક્શન વેબ એપ્લિકેશન
@@ -338,3 +339,7 @@ pip install -r requirements.txt
 
 **નોંધ**: આ એપ્લિકેશન development stage માં છે. Production માં deploy કરતા પહેલા security અને performance optimizations કરો.
 
+=======
+# Paaksathi-AI
+Paaksathi AI – Gujarati-first smart farming platform that detects crop diseases from leaf photos using AI, gives expert treatment guidance, and supports farmers with weather insights, crop tips, and easy-to-use web &amp; mobile tools.
+>>>>>>> e72c8b0fd1374474f8596a5cd126f12f905e88c1
