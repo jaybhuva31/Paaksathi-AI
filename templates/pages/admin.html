@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>એડમિન પેનલ - Paaksathi AI</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Admin Login/Content -->
+    <div id="adminLogin" class="admin-login-container">
+        <div class="admin-login-card">
+            <div class="admin-login-header">
+                <i class="fas fa-shield-alt"></i>
+                <h2>એડમિન લોગિન</h2>
+            </div>
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <label for="adminUsername">
+                        <i class="fas fa-user"></i> યુઝરનેઝ
+                    </label>
+                    <input type="text" id="adminUsername" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">
+                        <i class="fas fa-lock"></i> પાસવર્ડ
+                    </label>
+                    <input type="password" id="adminPassword" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-sign-in-alt"></i> લોગિન
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" style="display: none;">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <a href="/" style="text-decoration: none; color: inherit;"><span>એડમિન પેનલ</span></a>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="/">હોમ</a></li>
+                        <li><a href="/dashboard">ડેશબોર્ડ</a></li>
+                        <li><a href="/upload">પાક સ્કેન</a></li>
+                        <li><a href="#" id="adminLogoutBtn">લોગઆઉટ</a></li>
+                    </ul>
+                    <div class="hamburger" id="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <section class="admin-section">
+            <div class="container">
+                <div class="admin-header">
+                    <h1><i class="fas fa-chart-line"></i> એડમિન ડેશબોર્ડ</h1>
+                    <button id="exportUsersBtn" class="btn btn-primary" style="margin-left: auto;">
+                        <i class="fas fa-file-excel"></i> Export Users to Excel
+                    </button>
+                </div>
+
+                <div class="admin-stats">
+                    <div class="admin-stat-card">
+                        <i class="fas fa-globe"></i>
+                        <h2 id="adminTotalVisits">0</h2>
+                        <p>કુલ મુલાકાતો</p>
+                    </div>
+                    <div class="admin-stat-card">
+                        <i class="fas fa-users"></i>
+                        <h2 id="adminTotalUsers">0</h2>
+                        <p>કુલ યુઝર્સ</p>
+                    </div>
+                    <div class="admin-stat-card">
+                        <i class="fas fa-camera"></i>
+                        <h2 id="adminTotalScans">0</h2>
+                        <p>કુલ સ્કેન</p>
+                    </div>
+                </div>
+
+                <div class="admin-content">
+                    <div class="admin-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-history"></i> તાજેતરની મુલાકાતો</h2>
+                            <div class="card-actions">
+                                <button id="toggleVisitsBtn" class="btn btn-secondary">જુઓ</button>
+                            </div>
+                        </div>
+                        <div id="visitsCollapsible" class="collapsible-section" aria-hidden="true">
+                            <div class="table-container">
+                                <table id="visitsTable">
+                                    <thead>
+                                        <tr>
+                                            <th>IP Address</th>
+                                            <th>તારીખ</th>
+                                            <th>સમય</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="visitsTableBody">
+                                        <!-- Data loaded via JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <h2><i class="fas fa-notes-medical"></i> Disease Scan Records</h2>
+                        <div class="table-container">
+                            <table id="scanRecordsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Crop</th>
+                                        <th>Disease</th>
+                                        <th>Count</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="scanRecordsBody">
+                                    <!-- Data loaded via JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <h2><i class="fas fa-seedling"></i> Manage Crops</h2>
+                        <form id="addCropForm" class="admin-form">
+                            <div class="form-row">
+                                <input type="text" id="cropNameGu" placeholder="નામ (ગુજરાતી)" required>
+                                <input type="text" id="cropNameEn" placeholder="Name (English)">
+                                <button type="submit" class="btn">Add Crop</button>
+                            </div>
+                        </form>
+                        <div class="list" id="cropsList">
+                            <!-- Crops will be listed here -->
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <h2><i class="fas fa-virus"></i> Manage Diseases</h2>
+                        <form id="addDiseaseForm" class="admin-form">
+                            <input type="text" id="diseaseNameGu" placeholder="નામ (ગુજરાતી)" required>
+                            <input type="text" id="diseaseNameEn" placeholder="Name (English)">
+                            <input type="text" id="diseaseCrop" placeholder="Crop (Gujarati)">
+                            <textarea id="diseaseSymptoms" placeholder="લક્ષણો (અલગ લાઈনে)" rows="3"></textarea>
+                            <textarea id="diseaseTreatment" placeholder="સારવાર (અલગ લાઈને)" rows="2"></textarea>
+                            <textarea id="diseasePrevention" placeholder="રોકથામ (અલગ લાઈને)" rows="2"></textarea>
+                            <button type="submit" class="btn">Add Disease</button>
+                        </form>
+                        <div class="list" id="diseasesList">
+                            <!-- Diseases will be listed here -->
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <h2><i class="fas fa-hand-holding-usd"></i> Manage Government Schemes</h2>
+                        <form id="addSchemeForm" class="admin-form">
+                            <input type="text" id="schemeTitle" placeholder="શીર્ષક" required>
+                            <textarea id="schemeDescription" placeholder="વર્ણન" rows="3"></textarea>
+                            <button type="submit" class="btn">Add Scheme</button>
+                        </form>
+                        <div class="list" id="schemesList">
+                            <!-- Schemes will be listed here -->
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+</body>
+</html>
+

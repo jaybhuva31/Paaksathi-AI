@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>પાક સ્કેન કરો - Paaksathi AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/upload.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    {% include "components/navbar.html" %} 
+
+    <!-- Upload Section -->
+    <section class="upload-section">
+        <div class="container">
+            <div class="upload-container">
+                <div class="upload-header">
+                    <h1><i class="fas fa-camera"></i> પાક સ્કેન કરો</h1>
+                    <p>તમારા પાકની છબી અપલોડ કરો અને AI સાથે રોગ ઓળખો</p>
+                </div>
+
+                <div class="upload-card">
+                    <form id="uploadForm" enctype="multipart/form-data">
+                        <div class="crop-selection">
+                            <label for="cropType">
+                                <i class="fas fa-seedling"></i> પાક પસંદ કરો
+                            </label>
+                            <select id="cropType" name="crop_type" required>
+                                <option value="cotton">કપાસ</option>
+                                <option value="wheat">ઘઉં</option>
+                                <option value="rice">ચોખા</option>
+                                <option value="tomato">ટમેટા</option>
+                                <option value="potato">બટાટા</option>
+                            </select>
+                        </div>
+
+                        <div class="upload-area" id="uploadArea">
+                            <input type="file" id="fileInput" name="file" accept="image/*" required>
+                            <div class="upload-content">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>છબી અહીં ખેંચો અથવા ક્લિક કરો</p>
+                                <span>PNG, JPG, JPEG (મહત્તમ 16MB)</span>
+                            </div>
+                            <div class="preview-container" id="previewContainer" style="display: none;">
+                                <img id="previewImage" src="" alt="Preview">
+                                <button type="button" class="btn-remove" id="removeImage">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+                            <i class="fas fa-search"></i> રોગ ઓળખો
+                        </button>
+                    </form>
+
+                    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>AI રોગનું વિશ્લેષણ કરી રહ્યું છે...</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3><i class="fas fa-info-circle"></i> ટિપ્સ</h3>
+                    <ul>
+                        <li>છબી સ્પષ્ટ અને સારી રોશનીમાં લો</li>
+                        <li>રોગગ્રસ્ત ભાગને કેન્દ્રમાં રાખો</li>
+                        <li>છબીનું કદ 16MB કરતાં ઓછું રાખો</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Paaksathi AI</h3>
+                    <p>કૃષિ રોગ ડિટેક્શન માટે AI-પાવર્ડ સોલ્યુશન</p>
+                </div>
+                <div class="footer-section">
+                    <h4>ઝડપી લિંક્સ</h4>
+                    <ul>
+                        <li><a href="/">હોમ</a></li>
+                        <li><a href="/crops">પાક</a></li>
+                        <li><a href="/disease-library">રોગ લાઇબ્રેરી</a></li>
+                        <li><a href="/supported-crops">સપોર્ટેડ પાકો</a></li>
+                        <li><a href="/weather">હવામાન</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>મદદ</h4>
+                    <ul>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/contact">સંપર્ક</a></li>
+                        <li><a href="/government-schemes">સરકારી યોજનાઓ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>સંપર્ક</h4>
+                    <p><i class="fas fa-phone"></i> +91 93163 55475</p>
+                    <p><i class="fas fa-envelope"></i> info@paaksathiai.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026  Paaksathi AI. બધા અધિકારો સુરક્ષિત.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+</body>
+</html>
+

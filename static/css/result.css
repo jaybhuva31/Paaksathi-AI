@@ -1,0 +1,120 @@
+/* Result Page Styles */
+
+.result-section {
+    padding: 4rem 0;
+    min-height: 80vh;
+    background: var(--bg-light);
+}
+
+.result-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.loading-state {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.loading-state .spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 2rem;
+}
+
+.result-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+    padding: 3rem;
+    margin-bottom: 2rem;
+}
+
+.result-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.result-header h2 {
+    font-size: 2rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.result-image {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.result-image img {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.result-details {
+    margin-top: 2rem;
+}
+
+.detail-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-light);
+    border-radius: 10px;
+}
+
+.detail-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.detail-section p {
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+}
+
+.disease-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.disease-name-guj {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.action-buttons .btn {
+    flex: 1;
+    min-width: 200px;
+}
+
+@media (max-width: 768px) {
+    .result-card {
+        padding: 2rem;
+    }
+
+    .action-buttons .btn {
+        width: 100%;
+    }
+}
+

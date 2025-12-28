@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>સરકારી યોજનાઓ - Paaksathi AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    {% include "components/navbar.html" %} 
+
+    <!-- Government Schemes Section -->
+    <section class="schemes-section" style="padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title">સરકારી યોજનાઓ</h2>
+            <p style="text-align: center; color: var(--text-light); margin-bottom: 2.5rem;">ખેડૂતો માટે ઉપલબ્ધ સરકારી યોજનાઓ અને સબસિડી</p>
+
+            <div class="schemes-grid">
+                <div class="scheme-card">
+                    <h3>પીએમ કિસાન સન્માન નિધિ (PM-KISAN)</h3>
+                    <p>ભારત સરકારની યોજના જેમાં ખેડૂતોને વર્ષમાં ₹6000 આર્થિક સહાય મળે છે</p>
+                    <h4>ફાયદા:</h4>
+                    <ul>
+                        <li>વર્ષમાં ₹6000 (₹2000 ત્રણ હપ્તામાં)</li>
+                        <li>સીધા બેંક ખાતામાં રકમ</li>
+                        <li>કોઈ વ્યાજ નથી, પરત કરવાની જરૂરીયત નથી</li>
+                        <li>ઓનલાઈન અરજી કરી શકાય</li>
+                    </ul>
+                    <h4>પાત્રતા:</h4>
+                    <ul>
+                        <li>ખેતીલાયક જમીન ધરાવતું ખેડૂત પરિવાર</li>
+                        <li>2 હેક્ટરથી વધુ જમીન હોય તો પણ યોજના લાગુ</li>
+                        <li>આધાર કાર્ડ અને બેંક ખાતું જરૂરી</li>
+                    </ul>
+                    <h4>અરજી કેવી રીતે કરવી:</h4>
+                    <p>નજીકના CSC કેન્દ્ર અથવા pmkisan.gov.in પર અરજી કરો</p>
+                </div>
+
+                <div class="scheme-card">
+                    <h3>પ્રધાનમંત્રી ફસલ વીમા યોજના (PM Fasal Bima Yojana)</h3>
+                    <p>કુદરતી આફતથી ફસલને થતા નુકસાન માટે વીમા યોજના</p>
+                    <h4>ફાયદા:</h4>
+                    <ul>
+                        <li>ખરીફ પાક માટે 2% અને રબી માટે 1.5% પ્રીમિયમ</li>
+                        <li>કુદરતી આફત, જીવાત, રોગથી નુકસાન માટે વળતર</li>
+                        <li>બાકીનું પ્રીમિયમ સરકાર ભરે છે</li>
+                        <li>ઝડપી દાવા નિકાલ</li>
+                    </ul>
+                    <h4>પાત્રતા:</h4>
+                    <ul>
+                        <li>તમામ ખેડૂત – માલિક અને ભાડૂત</li>
+                        <li>બેંક લોન લેનાર ખેડૂતોએ ફરજિયાત</li>
+                        <li>અધિસૂચિત વિસ્તાર અને પાક માટે</li>
+                    </ul>
+                    <h4>અરજી કેવી રીતે કરવી:</h4>
+                    <p>નીજીકની બેંક, CSC કેન્દ્ર અથવા pmfby.gov.in પર અરજી કરો</p>
+                </div>
+
+                <div class="scheme-card">
+                    <h3>માટી આરોગ્ય કાર્ડ યોજના (Soil Health Card Scheme)</h3>
+                    <p>ખેડૂતોને તેમની જમીનની માટી ચકાસણી માટે મફત કાર્ડ</p>
+                    <h4>ફાયદા:</h4>
+                    <ul>
+                        <li>માટીના પોષક તત્વોની મફત ચકાસણી</li>
+                        <li>ખાતરની યોગ્ય માત્રા જાણી શકો</li>
+                        <li>ખર્ચમાં બચત અને ઉત્પાદન વધારો</li>
+                        <li>દર 3 વર્ષે નવું કાર્ડ મળે</li>
+                    </ul>
+                    <h4>પાત્રતા:</h4>
+                    <ul>
+                        <li>તમામ ખેડૂત</li>
+                        <li>જમીન માલિકી અથવા ભાડૂત ખેડૂત બંને</li>
+                    </ul>
+                    <h4>અરજી કેવી રીતે કરવી:</h4>
+                    <p>નીજીકના કૃષિ વિભાગ કચેરી અથવા soilhealth.dac.gov.in પર સંપર્ક કરો</p>
+                </div>
+
+                <div class="scheme-card">
+                    <h3>કૃષિ સાધન સબસિડી યોજના (Agricultural Equipment Subsidy)</h3>
+                    <p>ટ્રેક્ટર, પંપ, સ્પ્રેયર જેવા સાધનો પર સબસિડી</p>
+                    <h4>ફાયદા:</h4>
+                    <ul>
+                        <li>સાધનોની કિંમત પર 40% થી 50% સબસિડી</li>
+                        <li>નાના અને સીમિત ખેડૂતોને પ્રાધાન્યતા</li>
+                        <li>મહિલા ખેડૂતોને વધારાની સબસિડી</li>
+                    </ul>
+                    <h4>પાત્રતા:</h4>
+                    <ul>
+                        <li>નાના અને સીમિત ખેડૂત</li>
+                        <li>જમીન અને આધાર કાર્ડ જરૂરી</li>
+                        <li>પહેલાં સબસિડી ન લીધી હોય</li>
+                    </ul>
+                    <h4>અરજી કેવી રીતે કરવી:</h4>
+                    <p>જિલ્લા કૃષિ અધિકારીની કચેરીમાં અરજી કરો</p>
+                </div>
+            </div>
+
+            <script>
+                async function loadSchemes(){
+                    const grid = document.querySelector('.schemes-grid');
+                    if(!grid) return;
+                    try{
+                        const res = await fetch('/api/schemes');
+                        const data = await res.json();
+                        if(!data.success) throw new Error('Failed');
+                        grid.innerHTML = data.schemes.map(s => `
+                            <div class="scheme-card">
+                                <h3>${s.title}</h3>
+                                <p>${s.description}</p>
+                            </div>
+                        `).join('');
+                    }catch(err){
+                        console.error(err);
+                        grid.innerHTML = '<p>યોજનાઓ લોડ કરવામાં ભૂલ</p>';
+                    }
+                }
+                document.addEventListener('DOMContentLoaded', loadSchemes);
+            </script>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Paaksathi AI</h3>
+                    <p>કૃષિ રોગ ડિટેક્શન માટે AI-પાવર્ડ સોલ્યુશન</p>
+                </div>
+                <div class="footer-section">
+                    <h4>ઝડપી લિંક્સ</h4>
+                    <ul>
+                        <li><a href="/">હોમ</a></li>
+                        <li><a href="/crops">પાક</a></li>
+                        <li><a href="/disease-library">રોગ લાઇબ્રેરી</a></li>
+                        <li><a href="/supported-crops">સપોર્ટેડ પાકો</a></li>
+                        <li><a href="/weather">હવામાન</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>મદદ</h4>
+                    <ul>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/contact">સંપર્ક</a></li>
+                        <li><a href="/government-schemes">સરકારી યોજનાઓ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>સંપર્ક</h4>
+                    <p><i class="fas fa-phone"></i>+91 93163 55475</p>
+                    <p><i class="fas fa-envelope"></i> info@paaksathiai.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Paaksathi AI. બધા અધિકારો સુરક્ષિત.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+

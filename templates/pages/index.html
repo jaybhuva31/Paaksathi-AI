@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paaksathi AI - કૃષિ રોગ ડિટેક્શન</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    {% include "components/navbar.html" %} 
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Paaksathi AI</h1>
+                <p class="hero-subtitle">કૃષિ રોગ ડિટેક્શન સિસ્ટમ</p>
+                <p class="hero-description">
+                    AI-પાવર્ડ સિસ્ટમ સાથે તમારા પાકના રોગને ઝડપથી ઓળખો અને ઉપચાર મેળવો
+                </p>
+                <div class="hero-buttons">
+                    <a href="/upload" class="btn hero-btn btn-primary">
+                        <i class="fas fa-upload"></i> પાક સ્કેન કરો
+                    </a>
+                    <a href="/crops" class="btn hero-btn btn-secondary">
+                        <i class="fas fa-info-circle"></i> વધુ જાણો
+                    </a>
+                </div>
+                <div class="hero-stats" id="heroStats">
+                    <div class="stat-item">
+                        <i class="fas fa-users"></i>
+                        <span id="totalVisits">0</span>
+                        <p>લોકોએ મુલાકાત લીધી</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-camera"></i>
+                        <span id="totalScans">0</span>
+                        <p>પાક સ્કેન થયા</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="{{ url_for('static', filename='images/hero-farmer.svg') }}" alt="Farmer" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA + Stats Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <h2 class="cta-title">આજે જ શરૂઆત કરો</h2>
+                <p class="cta-subtext">તમારા પાકના રોગની ઓળખ કરો અને યોગ્ય સારવાર મેળવો</p>
+                <a href="/upload" class="btn cta-btn">હમણાં શરૂઆત કરો</a>
+                <div class="cta-stats-row" aria-hidden="false">
+                    <div class="stat">
+                        <span class="stat-number">25+</span>
+                        <p class="stat-text">રોગની ઓળખ</p>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <p class="stat-text">ઉપલબ્ધ સેવા</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">વિશેષતાઓ</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI-પાવર્ડ ડિટેક્શન</h3>
+                    <p>અદ્યતન AI તકનીક સાથે રોગની ઝડપથી ઓળખ</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <h3>લાઇવ હવામાન</h3>
+                    <p>તમારા ક્ષેત્ર માટે વાસ્તવિક સમયની હવામાન માહિતી</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-medical"></i>
+                    </div>
+                    <h3>રોગ લાઇબ્રેરી</h3>
+                    <p>વિસ્તૃત રોગ ડેટાબેઝ અને ઉપચાર માર્ગદર્શિકા</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <h3>સરકારી યોજનાઓ</h3>
+                    <p>કૃષકો માટે લાભકારી યોજનાઓની માહિતી</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">કેવી રીતે કામ કરે છે?</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>છબી અપલોડ કરો</h3>
+                    <p>તમારા પાકની છબી અપલોડ કરો</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>AI વિશ્લેષણ</h3>
+                    <p>AI સિસ્ટમ રોગનું વિશ્લેષણ કરે છે</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>પરિણામ મેળવો</h3>
+                    <p>રોગનું નામ, લક્ષણો અને ઉપચાર મેળવો</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Paaksathi AI</h3>
+                    <p>કૃષિ રોગ ડિટેક્શન માટે AI-પાવર્ડ સોલ્યુશન</p>
+                </div>
+                <div class="footer-section">
+                    <h4>ઝડપી લિંક્સ</h4>
+                    <ul>
+                        <li><a href="/">હોમ</a></li>
+                        <li><a href="/crops">પાક</a></li>
+                        <li><a href="/disease-library">રોગ લાઇબ્રેરી</a></li>
+                        <li><a href="/supported-crops">સપોર્ટેડ પાકો</a></li>
+                        <li><a href="/weather">હવામાન</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>મદદ</h4>
+                    <ul>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/contact">સંપર્ક</a></li>
+                        <li><a href="/government-schemes">સરકારી યોજનાઓ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>સંપર્ક</h4>
+                    <p><i class="fas fa-phone"></i> +91 93163 55475</p>
+                    <p><i class="fas fa-envelope"></i> info@paaksathiai.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Paaksathi AI. બધા અધિકારો સુરક્ષિત.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+

@@ -1,0 +1,53 @@
+<!-- Shared Navbar Component -->
+<nav class="navbar">
+    <div class="container">
+        <div class="nav-wrapper">
+            <div class="logo">
+                <i class="fas fa-seedling"></i>
+                <a href="/" style="text-decoration: none; color: inherit;"><span>Paaksathi AI</span></a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/" class="{% if request.path == '/' %}active{% endif %}">હોમ</a></li>
+                <li><a href="/crops" class="{% if request.path.startswith('/crops') %}active{% endif %}">પાક</a></li>
+                <li><a href="/disease-library" class="{% if request.path == '/disease-library' %}active{% endif %}">રોગ લાઇબ્રેરી</a></li>
+                <li><a href="/weather" class="{% if request.path == '/weather' %}active{% endif %}">હવામાન</a></li>
+                <li><a href="/upload" class="{% if request.path == '/upload' %}active{% endif %}">પાક સ્કેન</a></li>
+                <li><a href="/government-schemes" class="{% if request.path == '/government-schemes' %}active{% endif %}">સરકારી યોજનાઓ</a></li>
+                <li><a href="/faq" class="{% if request.path == '/faq' %}active{% endif %}">FAQ</a></li>
+                <li><a href="/contact" class="{% if request.path == '/contact' %}active{% endif %}">સંપર્ક</a></li>
+                <li class="nav-auth">
+                    {% if 'user' in session %}
+                    <div class="profile-toggle" id="profileToggle">
+                        <span class="profile-name">{{ session['user_name'] }}</span>
+                        <i class="fas fa-user-circle profile-icon" aria-hidden="true"></i>
+
+                        <div class="profile-dropdown" id="profileDropdown" aria-hidden="true">
+                            <div class="profile-head">
+                                <strong class="profile-username">{{ session['user_name'] }}</strong>
+                                <small class="profile-mobile">{{ session.get('mobile','') }}</small>
+                            </div>
+                            <div class="profile-details">
+                                <p class="profile-email">{{ session.get('email','') }}</p>
+                                <p class="profile-login">Login: <span class="login-time">{{ session.get('login_time','') }}</span></p>
+                            </div>
+                            <div class="profile-actions">
+                                <a href="/dashboard" class="btn btn-secondary">ડેશબોર્ડ</a>
+                                <a href="/profile" class="btn btn-primary">પ્રોફાઇલ</a>
+                                <button id="logoutBtn" class="btn-logout">લોગઆઉટ</button>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <a href="/login" class="btn-login">લોગિન</a>
+                    <a href="/signup" class="btn-signup">સાઇન અપ</a>
+                    {% endif %}
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</nav>

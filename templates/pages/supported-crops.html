@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>સપોર્ટેડ પાકો - Paaksathi AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    {% include "components/navbar.html" %}
+
+    <section class="supported-crops-section">
+        <div class="container">
+            <h2 class="section-title">સપોર્ટેડ પાકો</h2>
+            <p style="text-align:center; color:var(--text-light); margin-bottom:1.5rem;">Paaksathi AI હાલમાં નીચેના પાકોને સપોર્ટ કરે છે</p>
+
+            <div id="cropsGrid" class="crops-grid">
+                <div class="loading">લોડ થઈ રહ્યું છે...</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Paaksathi AI</h3>
+                    <p>કૃષિ રોગ ડિટેક્શન માટે AI-પાવર્ડ સોલ્યુશન</p>
+                </div>
+                <div class="footer-section">
+                    <h4>ઝડપી લિંક્સ</h4>
+                    <ul>
+                        <li><a href="/">હોમ</a></li>
+                        <li><a href="/crops">પાક</a></li>
+                        <li><a href="/disease-library">રોગ લાઇબ્રેરી</a></li>
+                        <li><a href="/supported-crops">સપોર્ટેડ પાકો</a></li>
+                        <li><a href="/weather">હવામાન</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>મદદ</h4>
+                    <ul>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/contact">સંપર્ક</a></li>
+                        <li><a href="/government-schemes">સરકારી યોજનાઓ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>સંપર્ક</h4>
+                    <p><i class="fas fa-phone"></i>+91 93163 55475</p>
+                    <p><i class="fas fa-envelope"></i> info@paaksathiai.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Paaksathi AI. બધા અધિકારો સુરક્ષિત.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        async function loadCrops(){
+            const grid = document.getElementById('cropsGrid');
+            try{
+                const res = await fetch('/api/crops');
+                const data = await res.json();
+                if(!data.success) throw new Error('Failed');
+                grid.innerHTML = data.crops.map(c => `
+                    <div class="crop-card">
+                        <div class="crop-icon">🌾</div>
+                        <h3>${c.name_gu}</h3>
+                        <p class="muted">${c.name_en || ''}</p>
+                    </div>
+                `).join('');
+            }catch(err){
+                console.error(err);
+                grid.innerHTML = '<p>પાકો લોડ કરવામાં ભૂલ</p>';
+            }
+        }
+        document.addEventListener('DOMContentLoaded', loadCrops);
+    </script>
+</body>
+</html>

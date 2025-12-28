@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ડેશબોર્ડ - Paaksathi AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    {% include "components/navbar.html" %}
+
+    <!-- Dashboard Section -->
+    <section class="dashboard-section">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1><i class="fas fa-tachometer-alt"></i> ડેશબોર્ડ</h1>
+                <p id="welcomeMessage">સ્વાગત છે!</p>
+            </div>
+
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalVisits">0</h3>
+                        <p>કુલ મુલાકાતો</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalScans">0</h3>
+                        <p>કુલ સ્કેન</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="userScans">0</h3>
+                        <p>તમારા સ્કેન</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+                <div class="profile-card">
+                    <h2><i class="fas fa-user-circle"></i> પ્રોફાઇલ</h2>
+                    <div class="profile-info" id="profileInfo">
+                        <p><strong>નામ:</strong> <span id="userName">-</span></p>
+                        <p><strong>મોબાઇલ:</strong> <span id="userMobile">-</span></p>
+                        <p><strong>ઇમેઇલ:</strong> <span id="userEmail">-</span></p>
+                    </div>
+                </div>
+
+                <div class="message-box">
+                    <h3><i class="fas fa-info-circle"></i> માહિતી</h3>
+                    <p id="visitMessage">આ વેબસાઇટ પર <strong id="visitCount">0</strong> લોકોએ મુલાકાત લીધી છે</p>
+                    <p id="scanMessage"><strong id="scanCount">0</strong> પાક સ્કેન થયા છે</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Paaksathi AI</h3>
+                    <p>કૃષિ રોગ ડિટેક્શન માટે AI-પાવર્ડ સોલ્યુશન</p>
+                </div>
+                <div class="footer-section">
+                    <h4>ઝડપી લિંક્સ</h4>
+                    <ul>
+                        <li><a href="/">હોમ</a></li>
+                        <li><a href="/crops">પાક</a></li>
+                        <li><a href="/disease-library">રોગ લાઇબ્રેરી</a></li>
+                        <li><a href="/weather">હવામાન</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>મદદ</h4>
+                    <ul>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/contact">સંપર્ક</a></li>
+                        <li><a href="/government-schemes">સરકારી યોજનાઓ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>સંપર્ક</h4>
+                    <p><i class="fas fa-phone"></i> +91 93163 55475</p>
+                    <p><i class="fas fa-envelope"></i> info@paaksathiai.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Paaksathi AI. બધા અધિકારો સુરક્ષિત.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
+

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>રોગ લાઇબ્રેરી - Paaksathi AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    {% include "components/navbar.html" %} 
+
+    <!-- Disease Library Section -->
+    <section class="disease-library-section">
+        <div class="container">
+            <h2 class="section-title">પાક રોગ પુસ્તકાલય</h2>
+            <p class="section-subtitle">તમામ પાક રોગો અને તેની સારવાર વિશે જાણો</p>
+
+            <div class="disease-controls">
+                <input type="search" class="disease-search" placeholder="રોગનું નામ શોધો..." aria-label="Search diseases">
+                <select class="disease-filter" aria-label="Filter crops">
+                    <option>તમામ પાકો</option>
+                    <option>કપાસ</option>
+                    <option>મગફળી</option>
+                    <option>ઘઉં</option>
+                    <option>ચોખા</option>
+                    <option>ટમેટા</option>
+                    <option>ડુંગળી</option>
+                </select>
+            </div>
+
+            <div id="diseaseGrid" class="disease-grid">
+                <!-- Diseases will be loaded here from /api/diseases -->
+                <div class="loading">લોડ થઈ રહ્યું છે...</div>
+            </div>
+        </div>
+
+        <!-- Disease Detail Modal -->
+        <div id="diseaseModal" class="modal" aria-hidden="true">
+            <div class="modal-backdrop" data-dismiss="modal"></div>
+            <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="diseaseModalTitle">
+                <button class="modal-close" aria-label="Close">&times;</button>
+                <div class="modal-body">
+                    <h2 id="diseaseModalTitle" class="modal-title">Disease Title</h2>
+                    <p class="modal-subtitle" id="diseaseModalSubtitle">English subtitle</p>
+
+                    <div class="modal-section">
+                        <h4>લક્ષણો:</h4>
+                        <ul id="modalSymptoms"></ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h4>સારવાર:</h4>
+                        <ul id="modalTreatment"></ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h4>રોકથામ:</h4>
+                        <ul id="modalPrevention"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Paaksathi AI</h3>
+                    <p>કૃષિ રોગ ડિટેક્શન માટે AI-પાવર્ડ સોલ્યુશન</p>
+                </div>
+                <div class="footer-section">
+                    <h4>ઝડપી લિંક્સ</h4>
+                    <ul>
+                        <li><a href="/">હોમ</a></li>
+                        <li><a href="/crops">પાક</a></li>
+                        <li><a href="/disease-library">રોગ લાઇબ્રેરી</a></li>
+                        <li><a href="/supported-crops">સપોર્ટેડ પાકો</a></li>
+                        <li><a href="/weather">હવામાન</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>મદદ</h4>
+                    <ul>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/contact">સંપર્ક</a></li>
+                        <li><a href="/government-schemes">સરકારી યોજનાઓ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>સંપર્ક</h4>
+                    <p><i class="fas fa-phone"></i>+91 93163 55475</p>
+                    <p><i class="fas fa-envelope"></i> info@paaksathiai.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Paaksathi AI. બધા અધિકારો સુરક્ષિત.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+
